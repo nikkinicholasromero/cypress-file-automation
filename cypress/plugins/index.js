@@ -7,12 +7,14 @@ module.exports = (on) => {
 
       return null;
     },
+
     fileExists(args) {
       return new Promise((resolve) => {
         let interval = setInterval(() => {
           --args.timeoutInSeconds;
 
-          if (fs.existsSync(args.file)) {
+          var files = fs.readdirSync(args.directory).filter(fn => fn.endsWith(args.fileName));
+          if (files.length > 0) {
             clearInterval(interval);
             resolve(true);
           }
