@@ -1,10 +1,10 @@
 context('milar-data-service', () => {
-  const inputFileDirectory: string = './cypress/fixtures/files/';
-  const inputFileName: string = 'SampleFile.xlsx';
-  const inputFilePath: string = inputFileDirectory + inputFileName;
+  let inputFileDirectory: string = './cypress/fixtures/files/';
+  let inputFileName: string = 'SampleFile.xlsx';
+  let inputFilePath: string = inputFileDirectory + inputFileName;
 
-  const sourceFileDirectory: string = 'C:/Users/nikki/Desktop/input/';
-  const destinationFileDirectory: string = 'C:/Users/nikki/Desktop/output/';
+  let sourceFileDirectory: string = Cypress.env("sourceFileDirectory");
+  let destinationFileDirectory: string = Cypress.env("destinationFileDirectory");
   
   describe('Success scenario', () => {
     it('should move the file in the processed location', () => {
@@ -24,6 +24,5 @@ context('milar-data-service', () => {
 
 // TODO :
 // Clear directories beforeEach
-// Set paths using environment variables
 // Build Jenkins pipeline job
 // Configure Jenkinsfile to include drive mounts
